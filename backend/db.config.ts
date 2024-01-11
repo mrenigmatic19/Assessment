@@ -6,14 +6,21 @@ import { HospitalInfo } from '../database/hospitalschema';
 import { BedsInfo } from '../database/bedschema';
 import { IcubedInfo } from '../database/icubedsschema';
 
+// Host: sql12.freesqldatabase.com
+// Database name: sql12676326
+// Database user: sql12676326
+// Database password: YVREK4y1Wq
+// Port number: 3306
+
+
 const connections = () => {
   createConnection({
     type: 'mysql',
-    host: 'localhost',
+    host: 'sql12.freesqldatabase.com',
     port: 3306,
-    username: 'root',
-    password: '',
-    database: 'medappoint',
+    username: 'sql12676326',
+    password: 'YVREK4y1Wq',
+    database: 'sql12676326',
     entities: [AppointmentInfo, SurgeryInfo, IcubedInfo, BedsInfo, HospitalInfo, UserInfo],
     synchronize: true,
     logging: false,
