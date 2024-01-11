@@ -4,11 +4,10 @@ import { HospitalInfo } from '../../database/hospitalschema';
 import bcrypt from 'bcrypt';
 
 
-export const getLoginHospital = async (req: Request, res: Response) => {
+ const getLoginHospital = async (req: Request, res: Response) => {
     res.render("login_hospital", { message: req.flash('msg') });
 };
-
-export const postLoginHospital = async (req: Request, res: Response) => {
+ const postLoginHospital = async (req: Request, res: Response) => {
     try {
         const hospRepository = getRepository(HospitalInfo);
         const chk = await hospRepository.findOneBy({ email: req.body.email });
@@ -32,3 +31,4 @@ export const postLoginHospital = async (req: Request, res: Response) => {
         res.render("error", { error: "An error occurred" });
       }
     };
+  export {getLoginHospital,postLoginHospital}

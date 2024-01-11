@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { HospitalInfo } from '../../database/hospitalschema';
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
 
 
 export const getSignupHospital = async (req: Request, res: Response) => {

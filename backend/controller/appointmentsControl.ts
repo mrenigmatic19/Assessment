@@ -4,7 +4,7 @@ import { AppointmentInfo } from '../../database/appointmentsschema';
 
 
 
-export const getAppointment = async (req: Request, res: Response) => {
+const getAppointment = async (req: Request, res: Response) => {
     try {
         const appointmentRepository = getRepository(AppointmentInfo);
         const data = await appointmentRepository.find({ where: { hospitalid: req.session.loginhid } });
@@ -16,7 +16,7 @@ export const getAppointment = async (req: Request, res: Response) => {
       }
     };
 
-export const postAppointment = async (req: Request, res: Response) => {
+const postAppointment = async (req: Request, res: Response) => {
     try {
         const appointmentRepository = getRepository(AppointmentInfo);
         const newAppointment = appointmentRepository.create({
@@ -37,3 +37,5 @@ export const postAppointment = async (req: Request, res: Response) => {
         res.status(500).send('Internal Server Error');
       }
     };
+
+export {getAppointment,postAppointment}

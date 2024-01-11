@@ -4,7 +4,7 @@ import { EquipmentInfo } from '../../database/equipmentschema';
 
 
 
-export const getEquipments = async (req: Request, res: Response) => {
+const getEquipments = async (req: Request, res: Response) => {
     try {
         const equipmentRepository = getRepository(EquipmentInfo);
         const data = await equipmentRepository.find({
@@ -18,7 +18,7 @@ export const getEquipments = async (req: Request, res: Response) => {
       }
     };
 
-export const postEquipments = async (req: Request, res: Response) => {
+const postEquipments = async (req: Request, res: Response) => {
     try {
         const equipmentRepository = getRepository(EquipmentInfo);
         const newEquipmentReg = equipmentRepository.create({
@@ -36,3 +36,4 @@ export const postEquipments = async (req: Request, res: Response) => {
         res.render("error", { error: "An error occurred" });
       }
     };
+export {getEquipments,postEquipments}

@@ -10,10 +10,20 @@ import { EquipmentInfo } from '../../database/equipmentschema';
 import {getDistance} from '../getdistance';
 
 export const getSearch = async (req: Request, res: Response) => {
-    const array = req.session.detail;
+    const array:any[] = [];
     const val = req.session.value;
+    if (req.session.detail) {
+        const details = req.session.detail;
+        
+        for (let i = 0; i < details.length; i++) {
+            const h = await getRepository(HospitalInfo).find({ where: { id: details[i].hospitalid } });
+          array.push([details[i], h[0]]);
+        }
+      }
+    console.log(val)
     res.render("searching", { message: req.flash('msg'), array, val });
 };
+
 export const postSearch = async (req: Request, res: Response) => {
     try {
         const val = req.body.value;

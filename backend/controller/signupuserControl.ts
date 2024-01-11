@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { UserInfo } from '../../database/userschema';
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
 
 
 
