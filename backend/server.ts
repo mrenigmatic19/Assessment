@@ -11,9 +11,8 @@ import  db from './db.config';
 
 //---------------------------------Hosting Port-----------------------------------------------
 
+const port = process.env.PORT || 3001
 
-const port=3000
-const hostname='127.0.0.1'
 db()
 
 declare module 'express-session' {
@@ -88,9 +87,10 @@ app.set("views",templatepath)
 
 //---------------------------------Hosting---------------------------------------------------
 
-app.listen(port,hostname,()=>{
-console.log("Server is Running!")
-})
 
+app.listen(port,()=>{
+    console.log("Server is Running!")
+    })
+    
 
 
